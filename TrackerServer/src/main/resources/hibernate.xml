@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"       
+       xsi:schemaLocation=
+       "http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+          
+    <bean id="hibernateNamingStrategy" class="org.hibernate.cfg.ImprovedNamingStrategy"/>      
+          
+    <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+      <property name="sessionFactory" ref="hibernateSessionFactory" />
+    </bean>
+ 
+ 	<bean id="hibernateSessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+    	<property name="dataSource" ref="dataSource" />
+    	<property name="schemaUpdate" value="false" />
+    	<property name="hibernateProperties">
+    		<props>    		
+    		  <prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</prop>
+    		  <prop key="hibernate.show_sql">false</prop>
+    		  <prop key="hibernate.connection.autocommit">false</prop>
+    		</props>
+    	</property>
+    	<property name="namingStrategy" ref="hibernateNamingStrategy"/>
+    	<property name="annotatedClasses">
+       		<list>
+        	 	<value>pl.jedenpies.web.tracker.model.hibernate.Coordinate</value>
+       		</list>
+    	</property>
+	</bean>
+  
+</beans>
