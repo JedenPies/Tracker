@@ -1,0 +1,24 @@
+<resources>
+
+    <string name="app_name">Tracker</string>
+    <string name="menu_settings">Ustawienia</string>
+    <string name="title_activity_main">Tracker</string>
+    <string name="service_on_off_label">Usługa</string>
+    <string name="monitor">Monitor</string>
+   
+    
+    <color name="black">#000</color>
+
+    <string name="ok">OK</string>
+    <string name="cancel">Anuluj</string>
+    <string name="register">Zarejestruj</string>
+    <string name="user_data">Dane użytkownika</string>
+    <string name="login">login</string>
+    <string name="password">hasło</string>
+    <string name="password_repeat">powtórz hasło</string>
+    <string name="modify">Zmień</string>
+    <string name="all_the_time">cały czas</string>
+    <string name="every_second">co sekundę</string>
+    <string name="every_3_seconds">co 3 sekundy</string>
+    
+</resources>

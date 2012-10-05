@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+	        android:id="@+id/values">
+	        <RadioButton 
+	            android:id="@+id/gps_all_the_time"
+	            android:text="@string/all_the_time" />
+	        <RadioButton 
+	            android:id="@+id/gps_every_second"
+	            android:text="@string/every_second" />
+	        <RadioButton 
+	            android:id="@+id/gps_every_3_seconds"
+	            android:text="@string/every_3_seconds" />	        
+    </RadioGroup>	    

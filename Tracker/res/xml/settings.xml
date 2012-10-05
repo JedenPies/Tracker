@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+    
+    <ListPreference
+        android:key="gps_interval"
+        android:title="GPS updates interval"
+        android:summary="How often GPS should update"
+        android:defaultValue="3"
+        android:entries="@array/gps_interval"
+        android:entryValues="@array/gps_interval_values" />
+    
+    <ListPreference
+        android:key="when_upload"
+        android:title="When to upload data"
+        android:summary=""
+        android:defaultValue="always"
+        android:entries="@array/settings_when_upload"
+        android:entryValues="@array/settings_when_upload_values" />
+    
+</PreferenceScreen>
