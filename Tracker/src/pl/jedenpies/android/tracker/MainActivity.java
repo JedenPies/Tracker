@@ -23,10 +23,8 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -72,12 +70,6 @@ public class MainActivity extends Activity implements TrackerServiceStatusUpdate
 		super.onDestroy();
 	}
 
-	@Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.activity_main, menu);
-        return true;
-    }
-
     public void onCheckbox(View view) {
     	switch (view.getId()) {
     	case R.id.checkbox_service:
@@ -85,12 +77,6 @@ public class MainActivity extends Activity implements TrackerServiceStatusUpdate
     		CheckBox ck = (CheckBox) view;
     		serviceManager.startService(ck.isChecked());
     	}
-    }
-    
-    public void onSettingsClicked(View view) {    	
-    	Log.e(LOG_TAG, "clicked");
-    	Intent intent = new Intent(this, pl.jedenpies.android.tracker.listold.MyListActivity.class);
-    	startActivity(intent);
     }
 
 	@Override
@@ -153,15 +139,27 @@ public class MainActivity extends Activity implements TrackerServiceStatusUpdate
         menuItems = new ArrayList<JPListItem>(); 
         JPListItem item;
         
-        item = JPListItemFactory.iconListItem("Monitor", "brak aktywnoœci", R.drawable.monitor_icon);
+        item = JPListItemFactory.iconListItem(
+        		getString(R.string.mmel_monitor), getString(R.string.mmed_monitor_no_activity), R.drawable.monitor_icon);
         menuItemsMap.put(MENU_ITEM_MONITOR, item);
         menuItems.add(item);
         
-        menuItems.add(JPListItemFactory.dialogListItem("Dane logowania do serwera", "nazwa u¿ytkownika i has³o", R.drawable.user_data_icon, DialogWrapper.LOGIN_DIALOG));
-        menuItems.add(JPListItemFactory.dialogListItem("Zmieñ has³o", "do serwera", R.drawable.change_password_icon, DialogWrapper.PASSWORD_DIALOG));
-        menuItems.add(JPListItemFactory.dialogListItem("Zarejestruj siê", "na serwerze", R.drawable.register_icon, DialogWrapper.REGISTER_DIALOG));        
-        
-        menuItems.add(JPListItemFactory.dialogListItem("Czêstotliwoœc GPS", "co sekundê", R.drawable.gps_interval_icon, DialogWrapper.GPS_INTERVAL_DIALOG));
+        menuItems.add(
+        		JPListItemFactory.dialogListItem(
+        				getString(R.string.mmel_credentials), getString(R.string.mmed_credentials), 
+        				R.drawable.user_data_icon, DialogWrapper.LOGIN_DIALOG));
+        menuItems.add(
+        		JPListItemFactory.dialogListItem(
+        				getString(R.string.mmel_change_password), getString(R.string.mmed_change_password),
+        				R.drawable.change_password_icon, DialogWrapper.PASSWORD_DIALOG));
+        menuItems.add(
+        		JPListItemFactory.dialogListItem(
+        				getString(R.string.mmel_register), getString(R.string.mmed_register),
+        				R.drawable.register_icon, DialogWrapper.REGISTER_DIALOG));                
+        menuItems.add(
+        		JPListItemFactory.dialogListItem(
+        				getString(R.string.mmel_gps_interval), getString(R.string.mmed_gps_interval),
+        				R.drawable.gps_interval_icon, DialogWrapper.GPS_INTERVAL_DIALOG));
                 
         JPListAdapter adapter = new JPListAdapter(this, menuItems);
         mainMenu.setOnItemClickListener(this);

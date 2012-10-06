@@ -48,7 +48,7 @@ public class JPListItemFactory {
 		return item;
 	}
 	public static JPListItem iconListItem(String title, String details, Integer iconId) {
-		JPIconListItem item = new JPIconListItem();
+		JPIconListItem item = new JPIconListItem();		
 		item.setTitle(title);
 		item.setDetails(details);
 		item.iconId = iconId;

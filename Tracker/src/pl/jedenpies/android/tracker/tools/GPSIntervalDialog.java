@@ -5,7 +5,6 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface.OnClickListener;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,7 +59,6 @@ public class GPSIntervalDialog extends DialogWrapper {
 	@Override
 	public void restore() {
 		int interval = Preferences.getInstance().getGPSInterval();
-		Log.d("Kupa", "asdfasdfasdf" + interval);
 		Handler handler = getHandler();
 		switch (interval) {
 		case 1000:
