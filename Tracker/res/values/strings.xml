@@ -4,45 +4,36 @@
     <string name="title_activity_main">Tracker</string>
 
     <!-- Main menu elements -->
-    <string name="mmel_service">Usługa</string>
+    <string name="mmel_service">Tracker Service</string>
 
     <string name="mmel_monitor">Monitor</string>
-    <string name="mmed_monitor_no_activity">brak aktywności</string>
+    <string name="mmed_monitor_no_activity">no activity</string>
     
-    <string name="mmel_credentials">Dane logowania do serwera</string>
-    <string name="mmed_credentials">nazwa użytkownika i hasło</string>
+    <string name="mmel_credentials">Server credentials</string>
+    <string name="mmed_credentials">user name and password</string>
     
-    <string name="mmel_change_password">Zmień hasło</string>
-    <string name="mmed_change_password">do serwera</string>
+    <string name="mmel_change_password">Change password</string>
+    <string name="mmed_change_password">to the server</string>
     
-    <string name="mmel_register">Zarejestruj się</string>
-    <string name="mmed_register">na serwerze</string>
+    <string name="mmel_register">Sign up</string>
+    <string name="mmed_register"></string>
     
-    <string name="mmel_gps_interval">Częstotliwość GPS</string>
+    <string name="mmel_gps_interval">GPS interval</string>
     <string name="mmed_gps_interval"></string>
 
     <!-- General short labels -->
-    <string name="l_sign_up">Zarejestruj</string>
+    <string name="l_sign_up">Sign up</string>
     <string name="l_login">login</string>
-    <string name="l_password">hasło</string>
-    <string name="l_password_repeat">powtórz hasło</string>
-    <string name="l_all_the_time">cały czas</string>
-    <string name="l_every_second">co sekundę</string>
-    <string name="l_every_3_seconds">co 3 sekundy</string>
-    
-
-
-    <string name="mednu_settings">Ustawienia</string>
+    <string name="l_password">password</string>
+    <string name="l_password_repeat">repeat password</string>
+    <string name="l_all_the_time">continuosly</string>
+    <string name="l_every_second">every second</string>
+    <string name="l_every_3_seconds">every 3 seconds</string>
+    <string name="l_user_data">User data</string>
+    <string name="l_cancel">Anuluj</string>
+    <string name="l_ok">OK</string>
+    <string name="l_modify">Modify</string>
 
     <color name="black">#000</color>
-
-    <string name="user_data">Dane użytkownika</string>
-    <string name="cancel">Anuluj</string>
-    <string name="ok">OK</string>
-    <string name="modify">Zmień</string>
-
-    <!-- 
-    <string name="monitor">Monitor</string>
-     -->
     
 </resources>

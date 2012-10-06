@@ -24,10 +24,10 @@ public class LoginDialog extends DialogWrapper {
 		passwordField.setText(password);
 		
 		this.dialog = new AlertDialog.Builder(context)
-			.setTitle(R.string.user_data)
+			.setTitle(R.string.l_user_data)
 			.setView(layout)			
-			.setNegativeButton(R.string.cancel, listener)
-			.setPositiveButton(R.string.ok, listener)
+			.setNegativeButton(R.string.l_cancel, listener)
+			.setPositiveButton(R.string.l_ok, listener)
 			.setCancelable(true)
 			.create();
 	}

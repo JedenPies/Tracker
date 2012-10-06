@@ -23,9 +23,9 @@ public class PasswordDialog extends DialogWrapper {
 		
 		this.dialog = new AlertDialog.Builder(context)
 			.setView(layout)
-			.setTitle(R.string.user_data)
-			.setNegativeButton(R.string.cancel, listener)
-			.setPositiveButton(R.string.modify, listener)		
+			.setTitle(R.string.l_user_data)
+			.setNegativeButton(R.string.l_cancel, listener)
+			.setPositiveButton(R.string.l_modify, listener)		
 			.setCancelable(true)
 			.create();
 	}

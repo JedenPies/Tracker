@@ -146,6 +146,10 @@ public class MainActivity extends Activity implements TrackerServiceStatusUpdate
         
         menuItems.add(
         		JPListItemFactory.dialogListItem(
+        				getString(R.string.mmel_gps_interval), getString(R.string.mmed_gps_interval),
+        				R.drawable.gps_interval_icon, DialogWrapper.GPS_INTERVAL_DIALOG));
+        menuItems.add(
+        		JPListItemFactory.dialogListItem(
         				getString(R.string.mmel_credentials), getString(R.string.mmed_credentials), 
         				R.drawable.user_data_icon, DialogWrapper.LOGIN_DIALOG));
         menuItems.add(
@@ -156,10 +160,6 @@ public class MainActivity extends Activity implements TrackerServiceStatusUpdate
         		JPListItemFactory.dialogListItem(
         				getString(R.string.mmel_register), getString(R.string.mmed_register),
         				R.drawable.register_icon, DialogWrapper.REGISTER_DIALOG));                
-        menuItems.add(
-        		JPListItemFactory.dialogListItem(
-        				getString(R.string.mmel_gps_interval), getString(R.string.mmed_gps_interval),
-        				R.drawable.gps_interval_icon, DialogWrapper.GPS_INTERVAL_DIALOG));
                 
         JPListAdapter adapter = new JPListAdapter(this, menuItems);
         mainMenu.setOnItemClickListener(this);
