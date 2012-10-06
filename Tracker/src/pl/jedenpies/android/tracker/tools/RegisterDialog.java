@@ -22,7 +22,7 @@ public class RegisterDialog extends DialogWrapper {
 			.setView(layout)
 			.setTitle(R.string.user_data)
 			.setNegativeButton(R.string.cancel, listener)
-			.setPositiveButton(R.string.register, listener)		
+			.setPositiveButton(R.string.l_sign_up, listener)		
 			.setCancelable(true)
 			.create();
 	}

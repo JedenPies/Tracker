@@ -3,11 +3,11 @@
 	        android:id="@+id/values">
 	        <RadioButton 
 	            android:id="@+id/gps_all_the_time"
-	            android:text="@string/all_the_time" />
+	            android:text="@string/l_all_the_time" />
 	        <RadioButton 
 	            android:id="@+id/gps_every_second"
-	            android:text="@string/every_second" />
+	            android:text="@string/l_every_second" />
 	        <RadioButton 
 	            android:id="@+id/gps_every_3_seconds"
-	            android:text="@string/every_3_seconds" />	        
+	            android:text="@string/l_every_3_seconds" />	        
     </RadioGroup>	    

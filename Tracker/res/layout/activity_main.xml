@@ -9,7 +9,7 @@
         android:layout_height="40dp"
         android:textSize="18dp"
         android:layout_margin="10dp"
-        android:text="@string/service_on_off_label"
+        android:text="@string/mmel_service"
         android:onClick="onCheckbox" />
     <View
         android:layout_width="fill_parent"

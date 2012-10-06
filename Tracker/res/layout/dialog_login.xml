@@ -13,7 +13,7 @@
         	android:layout_height="wrap_content"
 	        android:gravity="left"
     	    android:lines="1" 
-        	android:hint="@string/login"/>
+        	android:hint="@string/l_login"/>
 
 	    <EditText 
 	        android:id="@+id/password"
@@ -22,6 +22,6 @@
 	        android:gravity="left"
     	    android:lines="1"
         	android:inputType="textPassword"
-	        android:hint="@string/password"/> 
+	        android:hint="@string/l_password"/> 
 
 </LinearLayout>
