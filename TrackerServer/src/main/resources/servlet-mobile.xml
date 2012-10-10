@@ -3,16 +3,23 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"  
        xmlns:mvc="http://www.springframework.org/schema/mvc"     
+       xmlns:sec="http://www.springframework.org/schema/security"       
        xsi:schemaLocation=
        "http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd        
         http://www.springframework.org/schema/context 
         http://www.springframework.org/schema/context/spring-context-2.5.xsd
         http://www.springframework.org/schema/mvc
-        http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd"        
+        http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+        http://www.springframework.org/schema/security 
+        http://www.springframework.org/schema/security/spring-security-3.1.xsd"        
         >
           
-	<mvc:annotation-driven/>    
-          
+	<mvc:annotation-driven/>  
+	
+	<!-- 
+    <sec:global-method-security pre-post-annotations="enabled"/>
+	 -->
+              
 	<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />
     <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
     <bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter" >
@@ -25,7 +32,7 @@
     	</property>
     </bean>
     
-    <context:component-scan base-package="pl.jedenpies.web.tracker.controller.json"/>    
+    <context:component-scan base-package="pl.jedenpies.web.tracker.controller.mobile"/>    
   	<bean class="org.springframework.web.servlet.view.json.MappingJacksonJsonView">  
         <property name="prefixJson" value="false"/>  
      </bean>
@@ -35,9 +42,5 @@
   		<property name="prefix" value="/WEB-INF/jsp/"/>
   		<property name="suffix" value=".jsp"/>
 	</bean>
-  	<!-- 
-  	 -->
-	<!-- 
-	 -->
 	  
 </beans>

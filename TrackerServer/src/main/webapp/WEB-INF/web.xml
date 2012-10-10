@@ -12,11 +12,15 @@
 		<param-value>/WEB-INF/classes/log4j.xml</param-value>
 	</context-param>
 	 -->
+
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>/WEB-INF/classes/beans.xml</param-value>
+		<param-value>
+		    /WEB-INF/classes/spring-beans.xml
+		    /WEB-INF/classes/spring-security.xml
+		</param-value>
 	</context-param>
-	
+
 	<filter>  
         <filter-name>CharacterEncodingFilter</filter-name>  
         <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>  
@@ -24,44 +28,54 @@
             <param-name>encoding</param-name>  
             <param-value>UTF-8</param-value>  
         </init-param>  
-    </filter>	
+    </filter>
+
+    <filter>
+        <filter-name>springSecurityFilterChain</filter-name>
+    	<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>      
+    </filter>
 	<filter-mapping>  
         <filter-name>CharacterEncodingFilter</filter-name>  
         <url-pattern>/*</url-pattern>  
-    </filter-mapping> 
+    </filter-mapping>
+    <filter-mapping>
+  		<filter-name>springSecurityFilterChain</filter-name>
+  		<url-pattern>/*</url-pattern>
+	</filter-mapping>
      
     <servlet>
 		<servlet-name>main</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
-			<param-value>/WEB-INF/classes/main-servlet.xml</param-value>
+			<param-value>/WEB-INF/classes/servlet-main.xml</param-value>
 		</init-param>
-		<load-on-startup>2</load-on-startup>
+		<load-on-startup>3</load-on-startup>
 	</servlet>
-
+	
 	<servlet>
-		<servlet-name>json</servlet-name>
+		<servlet-name>mobile</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
-			<param-value>/WEB-INF/classes/json-servlet.xml</param-value>
+			<param-value>/WEB-INF/classes/servlet-mobile.xml</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
-
-	<welcome-file-list>
-    	<welcome-file>main</welcome-file>
-    </welcome-file-list>
+	   
+	<servlet-mapping>
+		<servlet-name>mobile</servlet-name>
+		<url-pattern>/mobile/*</url-pattern>
+	</servlet-mapping>	
 	
 	<servlet-mapping>
 		<servlet-name>main</servlet-name>
 		<url-pattern>/</url-pattern>		
 	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>json</servlet-name>
-		<url-pattern>/json/*</url-pattern>
-	</servlet-mapping>
+
+	<welcome-file-list>
+    	<welcome-file>main</welcome-file>
+    </welcome-file-list>
 
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>

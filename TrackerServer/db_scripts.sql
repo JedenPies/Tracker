@@ -47,3 +47,45 @@ ALTER TABLE coordinates
   OWNER TO tracker_admin;
 GRANT ALL ON TABLE coordinates TO tracker_admin;
 GRANT SELECT, UPDATE, INSERT, DELETE ON TABLE coordinates TO public;
+
+
+
+-- Table: users
+
+-- DROP TABLE users;
+
+CREATE TABLE users
+(
+  id integer NOT NULL,
+  username character varying(50) NOT NULL,
+  password character varying(100) NOT NULL,
+  email character varying(200),
+  CONSTRAINT users_pk PRIMARY KEY (id),
+  CONSTRAINT users_username_uq UNIQUE (username)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE users
+  OWNER TO tracker_admin;
+GRANT ALL ON TABLE users TO tracker_admin;
+GRANT SELECT, UPDATE, INSERT ON TABLE users TO public;
+
+  
+  
+  
+-- Sequence: users_seq
+
+-- DROP SEQUENCE users_seq;
+
+CREATE SEQUENCE users_seq
+  INCREMENT 1
+  MINVALUE 1
+  MAXVALUE 9223372036854775807
+  START 1
+  CACHE 1;
+ALTER TABLE users_seq
+  OWNER TO tracker_admin;
+GRANT ALL ON TABLE users_seq TO tracker_admin;
+GRANT USAGE ON TABLE users_seq TO public;
+  

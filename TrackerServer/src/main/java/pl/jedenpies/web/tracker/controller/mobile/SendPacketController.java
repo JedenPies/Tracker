@@ -1,4 +1,4 @@
-package pl.jedenpies.web.tracker.controller.json;
+package pl.jedenpies.web.tracker.controller.mobile;
 
 import java.util.Date;
 

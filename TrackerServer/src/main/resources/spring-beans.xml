@@ -17,10 +17,8 @@
 
 	<context:component-scan base-package="pl.jedenpies.web.tracker.dao" />
 	<context:component-scan base-package="pl.jedenpies.web.tracker.service" />
-	<!-- 
-	<context:component-scan base-package="eu.patrykdobrowolski.beans"/>
-	 -->
-
+	<context:component-scan base-package="pl.jedenpies.web.tracker.beans" scoped-proxy="targetClass"/>	
+	
 	<!-- 
 	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
     	<property name="location" value="WEB-INF/classes/config/application.properties"/>

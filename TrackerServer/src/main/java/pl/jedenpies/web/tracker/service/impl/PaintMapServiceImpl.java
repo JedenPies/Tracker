@@ -1,9 +1,8 @@
-package pl.jedenpies.web.tracker.service;
+package pl.jedenpies.web.tracker.service.impl;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.geom.Ellipse2D;
-import java.awt.geom.Line2D;
 import java.awt.image.BufferedImage;
 
 import org.hibernate.ScrollableResults;
@@ -13,6 +12,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import pl.jedenpies.web.tracker.Location;
 import pl.jedenpies.web.tracker.model.hibernate.Coordinate;
+import pl.jedenpies.web.tracker.service.CoordinateService;
+import pl.jedenpies.web.tracker.service.PaintMapService;
 
 @Transactional @Service("paintMapService")
 public class PaintMapServiceImpl implements PaintMapService {
