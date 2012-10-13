@@ -23,7 +23,7 @@ public class CaptchaHandler {
 		captcha = new Captcha.Builder(CAPTCHA_WIDTH, CAPTCHA_HEIGHT)
 			.addText(new DefaultTextProducer(CAPTCHA_LENGTH, CAPTCHA_CHARACTERS))			
 			.addNoise()
-			.addBorder()
+			.addNoise()
 			.build();
 	}
 	
