@@ -1,8 +1,33 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
     <style name="AppTheme" parent="android:style/Theme.Light">
-        <item name="android:background">@color/black</item>
-        
+        <item name="android:background">@color/black</item>        
     </style>
+    
+    <style name="my_theme" parent="@android:style/Theme.NoTitleBar" >
+		<item name="android:editTextStyle">@style/apptheme_edittext</item>
+		<item name="android:buttonStyle">@style/apptheme_button</item>
+	</style>
 
+    <style name="apptheme_edittext" parent="@android:style/Widget.EditText">
+ 		<item name="android:focusable">true</item>
+ 		<item name="android:focusableInTouchMode">true</item>
+	 	<item name="android:clickable">true</item>
+ 		<item name="android:background">@drawable/apptheme_bkg_edittext</item>
+	 	<item name="android:textColor">@color/c01</item>
+ 		<item name="android:gravity">center_vertical</item>
+ 		<item name="android:textColorHint">@color/c12</item>
+ 		<item name="android:textSize">14dp</item>
+ 	</style>
+ 	
+    <style name="apptheme_button" parent="@android:style/Widget.Button">        
+	 	<item name="android:clickable">true</item>
+ 		<item name="android:background">@drawable/apptheme_bkg_button</item>
+	 	<item name="android:textColor">@drawable/apptheme_btn_txt_color</item>
+	 	<item name="android:textStyle">bold</item>
+ 		<item name="android:textColorHint">@color/c12</item>
+ 		<item name="android:textSize">14dp</item>
+ 		<item name="android:gravity">center</item> 		
+ 	</style>  
+   
 </resources>

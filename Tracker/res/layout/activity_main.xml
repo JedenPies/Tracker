@@ -1,30 +1,265 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/c13">
 
-    <CheckBox
-        android:id="@+id/checkbox_service"
+  <LinearLayout
+        android:orientation="horizontal"
+        android:layout_height="50dp"
         android:layout_width="fill_parent"
-        android:layout_height="40dp"
-        android:textSize="18dp"
-        android:layout_margin="10dp"
-        android:text="@string/mmel_service"
-        android:onClick="onCheckbox" />
-    <View
-        android:layout_width="fill_parent"
+        android:layout_gravity="fill_vertical"
+        android:background="@color/c12" >
+            
+        <TextView 
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:gravity="center_vertical"
+            android:layout_weight="1"
+            android:textColor="@color/c07"
+            android:textSize="16dp"
+            android:text="@string/app_name"
+            android:padding="10dp" />
+        
+        <Button 
+            android:id="@+id/btn_preferences"
+            android:layout_height="30dp" 
+            android:layout_width="30dp" 
+            android:background="@drawable/icon_action_settings"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="10dp"
+            android:onClick="onClick" />                
+    </LinearLayout>
+    
+    <TextView 
+        android:layout_width="fill_parent" 
         android:layout_height="1dp"
-        android:background="#ccc"
-        android:layout_marginBottom="2dp"/>
-    <View
+        android:background="@color/c10" />
+    
+    <!-- List with border -->
+    <LinearLayout 
+        android:orientation="vertical"
         android:layout_width="fill_parent"
-        android:layout_height="1dp"
-        android:background="#ccc"/>
+        android:layout_height="wrap_content"
+       	android:background="@drawable/apptheme_bkg_list"
+       	android:padding="1dp"
+       	android:layout_marginTop="10dp"
+       	android:layout_marginLeft="10dp"
+       	android:layout_marginRight="10dp">    
+   
+    	<!-- Menu element -->
+		<LinearLayout			    
+    		android:orientation="horizontal"
+    		android:layout_width="fill_parent"
+    		android:layout_height="fill_parent"
+    		android:background="@drawable/apptheme_bkg_list_item"
+    		android:clickable="false"
+    		android:padding="5dp">     	    
+    	
+    		<Button 
+		        android:id="@+id/chk_service"
+ 		       	android:layout_height="30dp" 
+        		android:layout_width="30dp" 
+  			    android:background="@drawable/checkbox_unchecked"
+        		android:layout_gravity="center_vertical"
+        		android:layout_margin="5dp"
+        		android:onClick="onClick" />      
+    		<TextView 
+        		android:id="@+id/lbl_service_status"
+        		android:layout_width="0dp"
+        		android:layout_height="fill_parent"
+        		android:gravity="center_vertical"
+        		android:layout_weight="1"
+        		android:textColor="@color/c07"
+        		android:textSize="16dp"
+        		android:text="@string/l_service_status_off"
+        		android:onClick="onClick"
+        		android:clickable="true" />
+    	</LinearLayout>
+    	<!-- End of menu element: Switch -->
+    	
+    </LinearLayout>
+    
+    <LinearLayout 
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+       	android:background="@drawable/apptheme_bkg_list"
+       	android:padding="1dp"
+       	android:layout_marginTop="10dp"
+       	android:layout_marginLeft="10dp"
+       	android:layout_marginRight="10dp">    	
+    	
+    	<!-- Menu element: Number of coordinates -->
+		<LinearLayout			    
+    		android:orientation="horizontal"
+    		android:layout_width="fill_parent"
+    		android:layout_height="wrap_content"
+    		android:background="@drawable/apptheme_bkg_list_item"
+    		android:clickable="false">     	    
+    	
+    		<TextView 
+ 		       	android:layout_height="fill_parent" 
+        		android:layout_width="0dp" 
+        		android:layout_weight="1"
+				android:padding="10dp"
+        		android:textSize="15dp"
+        		android:textColor="@color/c07"
+        		android:text="@string/l_monitor_not_packaged_coordinates"
+        		android:gravity="center_vertical" />      
+    		<TextView 
+    		    android:id="@+id/txt_monitor_coords_val"
+        		android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"
+        		android:layout_gravity="right"
+        		android:gravity="center_vertical"
+        		android:textColor="@color/c07"
+        		android:padding="10dp"
+        		android:textSize="25dp"
+        		android:textStyle="bold"
+        		android:text="" />
+    	</LinearLayout>
+    	<!-- End of menu element: Number of coordinates -->
+    	<TextView 
+        	android:layout_width="fill_parent" 
+        	android:layout_height="1dp"
+        	android:background="@color/c10"/>	    	
+		
+		<!-- Menu element: Packets not sent -->
+		<LinearLayout			    
+    		android:orientation="horizontal"
+    		android:layout_width="fill_parent"
+    		android:layout_height="wrap_content"
+    		android:background="@drawable/apptheme_bkg_list_item"
+    		android:clickable="false">     	    
+    	
+    		<TextView 
+ 		       	android:layout_height="fill_parent" 
+        		android:layout_width="0dp" 
+        		android:layout_weight="1"
+				android:padding="10dp"
+        		android:textSize="15dp"
+        		android:textColor="@color/c07"
+        		android:text="@string/l_monitor_number_of_packets_not_sent"
+        		android:gravity="center_vertical" />      
+    		<TextView 
+    		    android:id="@+id/txt_monitor_not_sent_val"    		    
+        		android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"
+        		android:layout_gravity="right"
+        		android:gravity="center_vertical"
+        		android:textColor="@color/c07"
+        		android:padding="10dp"
+        		android:textSize="25dp"
+        		android:textStyle="bold"
+        		android:text="" />
+    	</LinearLayout>
+    	<!-- End of menu element: Packets not sent -->    	
+		<TextView 
+        	android:layout_width="fill_parent" 
+        	android:layout_height="1dp"
+        	android:background="@color/c10"/>	    	
 
-	<ListView 
-	    android:id="@+id/main_menu"
-	    android:layout_width="fill_parent"
-	    android:layout_height="fill_parent" >
-	</ListView>
+		<!-- Menu element -->
+		<LinearLayout			    
+    		android:orientation="horizontal"
+    		android:layout_width="fill_parent"
+    		android:layout_height="wrap_content"
+    		android:background="@drawable/apptheme_bkg_list_item"
+    		android:clickable="false">     	    
+    	
+    		<TextView 
+ 		       	android:layout_height="fill_parent" 
+        		android:layout_width="0dp" 
+        		android:layout_weight="1"
+				android:padding="10dp"
+        		android:textSize="15dp"
+        		android:textColor="@color/c07"
+        		android:text="@string/l_monitor_packets_scheduled_to_send"
+        		android:gravity="center_vertical" />      
+    		<TextView 
+    		    android:id="@+id/txt_monitor_to_sent_val"    		    
+        		android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"
+        		android:layout_gravity="right"
+        		android:gravity="center_vertical"
+        		android:textColor="@color/c07"
+        		android:padding="10dp"
+        		android:textSize="25dp"
+        		android:textStyle="bold"
+        		android:text="" />
+    	</LinearLayout>
+    	<!-- End of menu element:  -->  
+		<TextView 
+        	android:layout_width="fill_parent" 
+        	android:layout_height="1dp"
+        	android:background="@color/c10"/>	    	
+		<!-- Menu element -->
+		<!-- Menu element -->
+		<LinearLayout			    
+    		android:orientation="horizontal"
+    		android:layout_width="fill_parent"
+    		android:layout_height="wrap_content"
+    		android:background="@drawable/apptheme_bkg_list_item"
+    		android:clickable="false">     	    
+    	
+    		<TextView 
+ 		       	android:layout_height="fill_parent" 
+        		android:layout_width="0dp" 
+        		android:layout_weight="1"
+				android:padding="10dp"
+        		android:textSize="15dp"
+        		android:textColor="@color/c07"
+        		android:text="@string/l_monitor_number_of_packets_sent"
+        		android:gravity="center_vertical" />      
+    		<TextView 
+    		    android:id="@+id/txt_monitor_sent_val"    		    
+        		android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"
+        		android:layout_gravity="right"
+        		android:gravity="center_vertical"
+        		android:textColor="@color/c07"
+        		android:padding="10dp"
+        		android:textSize="25dp"
+        		android:textStyle="bold"
+        		android:text="" />
+    	</LinearLayout>
+    	<!-- End of menu element:  -->      	   
+		<TextView 
+        	android:layout_width="fill_parent" 
+        	android:layout_height="1dp"
+        	android:background="@color/c10"/>	    	
+		<!-- Menu element -->
+		<LinearLayout			    
+    		android:orientation="horizontal"
+    		android:layout_width="fill_parent"
+    		android:layout_height="wrap_content"
+    		android:background="@drawable/apptheme_bkg_list_item"
+    		android:clickable="false">     	    
+    	
+    		<TextView 
+ 		       	android:layout_height="fill_parent" 
+        		android:layout_width="0dp" 
+        		android:layout_weight="1"
+				android:padding="10dp"
+        		android:textSize="15dp"
+        		android:textColor="@color/c07"
+        		android:text="@string/l_monitor_database_size"
+        		android:gravity="center_vertical" />      
+    		<TextView 
+    		    android:id="@+id/txt_monitor_dbsize_val"
+        		android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"
+        		android:layout_gravity="right"
+        		android:gravity="center_vertical"
+        		android:textColor="@color/c07"
+        		android:padding="10dp"
+        		android:textSize="25dp"
+        		android:textStyle="bold"
+        		android:text="" />
+    	</LinearLayout>
+    	<!-- End of menu element:  -->       		    	
+    </LinearLayout>
+
     
 </LinearLayout>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@color/c13">
+
+   <LinearLayout
+        android:orientation="horizontal"
+        android:layout_height="50dp"
+        android:layout_width="fill_parent"
+        android:layout_gravity="fill_vertical"
+        android:background="@color/c12" >
+
+        <Button 
+            android:id="@+id/btn_back"
+            android:layout_height="30dp" 
+            android:layout_width="30dp" 
+            android:background="@drawable/icon_action_back"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="10dp"
+            android:onClick="onButtonClick"
+            />   
+
+		<TextView 
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:gravity="center_vertical"
+            android:layout_weight="1"
+            android:textColor="@color/c07"
+            android:textSize="16dp"
+            android:text="@string/l_sign_up"/>
+             
+    </LinearLayout>
+
+    <TextView 
+        android:layout_width="fill_parent" 
+        android:layout_height="1dp"
+        android:background="@color/c10" /> 
+
+    <ScrollView 
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent">
+        
+    	<LinearLayout
+        	android:layout_width="match_parent"
+        	android:layout_height="wrap_content"
+        	android:orientation="vertical"
+        	android:padding="10dp" >
+
+        	<EditText
+            	android:id="@+id/txt_username"
+            	android:layout_width="fill_parent"
+            	android:layout_height="wrap_content"
+            	android:layout_margin="3dp"
+            	android:hint="@string/l_username"
+            	android:inputType="text"
+            	android:maxLength="50" />
+
+        	<EditText
+            	android:id="@+id/txt_email"
+            	android:layout_width="fill_parent"
+            	android:layout_height="wrap_content"
+            	android:layout_margin="3dp"
+           		android:hint="@string/l_email_address_optional"
+            	android:inputType="textEmailAddress"
+            	android:maxLength="200" />
+
+        	<EditText
+            	android:id="@+id/txt_password"
+            	android:layout_width="fill_parent"
+            	android:layout_height="wrap_content"
+            	android:layout_margin="3dp"
+            	android:hint="@string/l_password"
+            	android:inputType="textPassword"
+            	android:maxLength="30" />
+
+        	<EditText
+            	android:id="@+id/txt_password2"
+            	android:layout_width="fill_parent"
+            	android:layout_height="wrap_content"
+            	android:layout_margin="3dp"
+            	android:hint="@string/l_password_repeat"
+            	android:inputType="textPassword"
+            	android:maxLength="30" />
+
+        	<ImageView 
+            	android:id="@+id/img_captcha"
+            	android:layout_width="fill_parent"
+            	android:layout_height="50dp"
+            	android:layout_margin="3dp" 
+            	android:contentDescription="@string/h_captcha"
+            	android:scaleType="centerInside" />
+        
+        	<EditText
+            	android:id="@+id/txt_captchaAnswer"
+            	android:layout_width="match_parent"
+            	android:layout_height="wrap_content"
+            	android:layout_margin="3dp"
+            	android:hint="@string/h_captcha"
+            	android:inputType="textNoSuggestions"
+            	android:maxLength="12" />
+
+        	<LinearLayout
+            	android:layout_width="match_parent"
+            	android:layout_height="wrap_content"
+            	android:orientation="horizontal" >
+
+            	<Button
+                	android:id="@+id/btn_sign_up"
+                	android:layout_width="0dp"
+                	android:layout_height="wrap_content"
+                	android:layout_gravity="center"
+                	android:layout_margin="3dp"
+                	android:layout_weight=".5"
+                	android:text="@string/l_sign_up" 
+                	android:onClick="onButtonClick" />
+        	</LinearLayout>
+    	</LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

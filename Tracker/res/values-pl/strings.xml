@@ -1,39 +1,54 @@
 <resources>
 
     <string name="app_name">Tracker</string>
-    <string name="title_activity_main">Tracker</string>
-
-    <!-- Main menu elements -->
-    <string name="mmel_service">Usługa</string>
-
-    <string name="mmel_monitor">Monitor</string>
-    <string name="mmed_monitor_no_activity">brak aktywności</string>
-    
-    <string name="mmel_credentials">Dane logowania do serwera</string>
-    <string name="mmed_credentials">nazwa użytkownika i hasło</string>
-    
-    <string name="mmel_change_password">Zmień hasło</string>
-    <string name="mmed_change_password">do serwera</string>
-    
-    <string name="mmel_register">Zarejestruj się</string>
-    <string name="mmed_register">na serwerze</string>
-    
-    <string name="mmel_gps_interval">Częstotliwość GPS</string>
-    <string name="mmed_gps_interval"></string>
 
     <!-- General short labels -->
-    <string name="l_sign_up">Zarejestruj</string>
-    <string name="l_login">login</string>
-    <string name="l_password">hasło</string>
-    <string name="l_password_repeat">powtórz hasło</string>
-    <string name="l_all_the_time">cały czas</string>
-    <string name="l_every_second">co sekundę</string>
-    <string name="l_every_3_seconds">co 3 sekundy</string>
-    <string name="l_user_data">Dane użytkownika</string>
-    <string name="l_cancel">Anuluj</string>
+    <string name="l_password">Hasło</string>
+    <string name="l_password_repeat">Powtórz Hasło</string>
     <string name="l_ok">OK</string>
-    <string name="l_modify">Zmień</string>
+    <string name="l_cancel">Anuluj</string>
+    <string name="l_email_address_optional">Adres e-mail (opcjonalnie)</string>
+    <string name="l_username">Login</string>
+    <string name="l_test">Test</string>
+    <string name="l_save">Zapisz</string>
+    <string name="l_preferences">Ustawienia</string>
+    <string name="l_settings_user_credentials">Dane Logowania</string>
+    <string name="l_settings_user_credentials_hint">Zmień nazwę użytkownika i hasło</string>    
+    <string name="l_settings_change_password">Zmiana Hasła</string>
+    <string name="l_settings_change_password_hint">Zmień bieżące hasło</string>
+    <string name="l_settings_sign_up">Zarejestruj się</string>
+    <string name="l_settings_sign_up_hint">Zarejestruj się w usłudze</string>
+    <string name="l_settings_gps_frequency">Częstotliwość GPS</string>
+    <string name="l_settings_upload_network">Typ sieci do wysyłki danych</string>
+    <string name="l_settings_packet_size">Rozmiar pakietów danych</string>
+    <string name="l_sign_up">Zarejestruj się</string>
+    <string name="l_service_status_unknown">Stan Usługi: nieznany</string>
+    <string name="l_service_status_off">Stan Usługi: WYŁĄCZONA</string>
+    <string name="l_service_status_running">Stan Usługi: URUCHOMIONA</string>
+    <string name="l_user_credentials">Dane Logowania</string>    
+    
+    <string name="h_captcha">Przepisz tekst z obrazka</string>
 
-    <color name="black">#000</color>
-
+    <string name="cd_icon">Icon</string>
+    
+    <string name="srv_notification_title">Usługa Tracker działa w tle</string>
+    <string name="srv_notification_text">Usługa Tracker jest w tej chwili uruchomiona</string>
+    
+    <string name="prf_gps_interval_0">Ciągle</string>
+    <string name="prf_gps_interval_3">Co 3 sekundy</string>
+    <string name="prf_gps_interval_5">Co 5 sekund</string>
+    <string name="prf_gps_interval_15">Co 15 sekund</string>
+    <string name="prf_packet_size_200">200 pozycji</string>
+    <string name="prf_packet_size_500">500 pozycji</string>
+    <string name="prf_packet_size_1000">1000 pozycji</string>
+    <string name="prf_network_type_all">Wszystkie sieci</string>
+    <string name="prf_network_type_high">Sieci 3G</string>
+    <string name="prf_network_type_wifi">Sieci Wi-Fi</string>
+    
+    <string name="l_monitor_not_packaged_coordinates">Nie spakowanych lokalizacji</string>
+    <string name="l_monitor_number_of_packets_not_sent">Nie wysłanych pakietów</string>
+    <string name="l_monitor_packets_scheduled_to_send">Pakietów do wysłania</string>
+    <string name="l_monitor_number_of_packets_sent">Pakietów wysłanych</string>
+    <string name="l_monitor_database_size">Rozmiar bazy danych</string>    
+    
 </resources>

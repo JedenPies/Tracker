@@ -16,13 +16,15 @@ public class Packet {
 	private Integer size;
 	private Long created;
 	private Long sent;
+	private Integer status;
 	private List<Coordinates> coordinates;
 
 
-	public Packet(long id, int size, long created) {
+	public Packet(long id, int size, long created, int status) {
 		this.id = id;
 		this.size = size;
 		this.created = created;
+		this.status = status;
 	}
 	public Long getId() {
 		return id;
@@ -53,6 +55,12 @@ public class Packet {
 	}
 	public void setCoordinates(List<Coordinates> coordinates) {
 		this.coordinates = coordinates;
+	}
+	public void setStatus(int status) {
+		this.status = status;
+	}
+	public int getStatus() {
+		return status;
 	}
 	
 	public JSONObject getJSONObject() {

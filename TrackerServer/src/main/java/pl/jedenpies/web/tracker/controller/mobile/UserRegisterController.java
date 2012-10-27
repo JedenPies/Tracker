@@ -18,11 +18,14 @@ import pl.jedenpies.web.tracker.beans.CaptchaHandler;
 import pl.jedenpies.web.tracker.model.domain.UserInfo;
 import pl.jedenpies.web.tracker.model.json.UserRegisterForm;
 import pl.jedenpies.web.tracker.service.UserService;
+import pl.jedenpies.web.tracker.validation.SyntaxValidator;
 
 @Controller
 @RequestMapping("user")
 public class UserRegisterController {
 
+//	private static final Logger LOGGER = Logger.getLogger(UserRegisterController.class);
+	
 	@Autowired
 	private CaptchaHandler captchaHandler;
 	
@@ -30,7 +33,8 @@ public class UserRegisterController {
 	private UserService userService;
 	
 	@RequestMapping(value = "isAvailable/{username}", method = RequestMethod.GET)
-	public @ResponseBody SimpleJSONResponse checkAvailable(@PathVariable("username") String username) {		
+	public @ResponseBody SimpleJSONResponse checkAvailable(@PathVariable("username") String username) {
+//		LOGGER.debug("Checking username availability");
 		if (userService.isAvailable(username)) return SimpleJSONResponse.RESPONSE_OK;	
 		return SimpleJSONResponse.RESPONSE_NOK;
 	}
@@ -38,7 +42,9 @@ public class UserRegisterController {
 	@RequestMapping(value = "getCaptcha", method = RequestMethod.GET)
 	@ResponseBody
 	public void getCaptcha(HttpServletResponse response) {
+//		LOGGER.debug("Creating captcha");
 		try {
+			System.out.println("getting captcha");
 			captchaHandler.create();
 			response.setContentType("image/png");
 			BufferedImage image = captchaHandler.getImage();
@@ -50,9 +56,9 @@ public class UserRegisterController {
 	@RequestMapping(value = "register", method = RequestMethod.POST)
 	public @ResponseBody SimpleJSONResponse register(@RequestBody UserRegisterForm userForm) {
 		
-		System.out.println("Proba rejestracji");
-		if (!userForm.getPassword().equals(userForm.getPassword2())) return reject("temp: passwords");
-		if (!captchaHandler.isCorrect(userForm.getCaptchaAnswer())) return reject("temp: captcha");
+//		LOGGER.debug("User registration: " + userForm.getUsername() + "[" + userForm.getEmail() + "]");
+		String validationResult = validateForm(userForm);
+		if (validationResult != null) return reject(validationResult);
 		UserInfo user = userService.registerUser(userForm.getUsername(), userForm.getPassword(), userForm.getEmail());
 		if (user != null) return accept();
 		return reject(null);
@@ -63,5 +69,17 @@ public class UserRegisterController {
 	}
 	private SimpleJSONResponse reject(String message) {
 		return new SimpleJSONResponse(message);
+	}
+		
+	private String validateForm(UserRegisterForm form) {
+	
+		if (!SyntaxValidator.USERNAME_VALIDATOR.validate(form.getUsername()))  { return "Invalid username"; }
+		if (!SyntaxValidator.PASSWORD_VALIDATOR.validate(form.getPassword()))  { return "Invalid password"; }
+		if (!SyntaxValidator.PASSWORD_VALIDATOR.validate(form.getPassword2())) { return "Invalid password"; }
+		if (!form.getPassword().equals(form.getPassword2())) { return "Paswords do not match"; }
+		if (!SyntaxValidator.EMAIL_VALIDATOR.validate(form.getEmail())) { return "Invalid e-mail address"; }
+		if (!captchaHandler.isCorrect(form.getCaptchaAnswer())) { return "Invalid captcha answer"; }
+		if (!userService.isAvailable(form.getUsername())) { return "Username already exists"; }
+		return null;
 	}
 }

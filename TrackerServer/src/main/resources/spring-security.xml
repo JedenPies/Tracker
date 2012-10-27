@@ -13,11 +13,13 @@
          -->
     </sec:http>
      
-    <sec:authentication-manager>
-        <sec:authentication-provider user-service-ref="userService"> 
-            <sec:password-encoder hash="sha">
+    <sec:authentication-manager alias="authenticationManager">
+        <sec:authentication-provider user-service-ref="userService" > 
+            <sec:password-encoder hash="plaintext">
                 <sec:salt-source user-property="username"/>
             </sec:password-encoder>
+            <!-- 
+             -->
         </sec:authentication-provider>        
     </sec:authentication-manager>
     

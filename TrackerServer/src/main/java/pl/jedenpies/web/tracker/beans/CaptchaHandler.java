@@ -28,7 +28,7 @@ public class CaptchaHandler {
 	}
 	
 	public boolean isCorrect(String text) {
-		return captcha.isCorrect(text);
+		return captcha == null ? false : captcha.isCorrect(text);
 	}
 	
 	public void clear() {
@@ -36,6 +36,6 @@ public class CaptchaHandler {
 	}
 	
 	public BufferedImage getImage() {
-		return captcha.getImage();
+		return captcha == null ? null : captcha.getImage();
 	}
 }

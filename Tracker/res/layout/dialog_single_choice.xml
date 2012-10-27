@@ -1,0 +1,88 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="false"
+    android:padding="1dp"
+    android:background="@drawable/apptheme_bkg_dialog">
+
+    <LinearLayout
+        android:id="@+id/lin_title_bar"
+        android:orientation="vertical"
+        android:layout_height="40dp"
+        android:layout_width="fill_parent"
+        android:layout_gravity="fill_vertical"
+        android:background="@color/c12" >
+        
+        <TextView 
+            android:id="@+id/txt_title"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/c07"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:text="" />
+    
+    	<TextView         
+        	android:layout_width="fill_parent" 
+        	android:layout_height="1dp"
+        	android:background="@color/c10" />                 
+    
+ 
+    </LinearLayout>
+    
+    <ScrollView 
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:clickable="false"
+        android:padding="5dp">
+        
+        <LinearLayout
+            android:id="@+id/dlg_list_of_choices"
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:clickable="false"
+            android:background="@drawable/apptheme_bkg_list"
+            android:padding="1dp"
+            android:layout_margin="5dp">
+            
+        </LinearLayout>
+        
+    </ScrollView>
+    <LinearLayout 
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingBottom="5dp">
+
+    <Button 
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginLeft="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginRight="5dp"
+        android:text="@string/l_cancel"
+        android:textStyle="bold"
+        android:background="@drawable/apptheme_bkg_button"
+        android:id="@+id/btn_cancel"/>
+        
+    <Button 
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginBottom="5dp"
+        android:layout_marginRight="5dp"
+        android:text="@string/l_ok"
+        android:textStyle="bold"
+        android:background="@drawable/apptheme_bkg_button"
+        android:id="@+id/btn_ok"/>    
+    </LinearLayout>
+    
+</LinearLayout>
+

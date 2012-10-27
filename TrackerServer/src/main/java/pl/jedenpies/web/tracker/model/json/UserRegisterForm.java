@@ -2,6 +2,11 @@ package pl.jedenpies.web.tracker.model.json;
 
 import javax.swing.text.html.ImageView;
 
+import org.springframework.util.StringUtils;
+import org.springframework.validation.ValidationUtils;
+
+import pl.jedenpies.web.tracker.validation.SyntaxValidator;
+
 public class UserRegisterForm {
 
 	private String username;
@@ -47,4 +52,5 @@ public class UserRegisterForm {
 	public void setCaptcha(ImageView captcha) {
 		this.captcha = captcha;
 	}
+
 }

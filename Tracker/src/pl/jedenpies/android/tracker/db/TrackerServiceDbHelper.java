@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class TrackerServiceDbHelper extends SQLiteOpenHelper {
 
-	private static final String DATABASE_NAME = "tracker_service.db";
+	public static final String DATABASE_NAME = "tracker_service.db";
 	private static final int    DATABASE_VERSION = 1;
 		
 	public TrackerServiceDbHelper(Context context) {

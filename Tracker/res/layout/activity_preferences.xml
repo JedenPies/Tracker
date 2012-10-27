@@ -1,0 +1,354 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@color/c13">
+
+   <!-- top static panel -->
+   <LinearLayout
+        android:orientation="horizontal"
+        android:layout_height="50dp"
+        android:layout_width="fill_parent"
+        android:layout_gravity="fill_vertical"
+        android:background="@color/c12" >
+        <Button 
+            android:id="@+id/btn_back"
+            android:layout_height="30dp" 
+            android:layout_width="30dp" 
+            android:background="@drawable/icon_action_back"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="10dp"
+            android:onClick="onClick" />   
+        <TextView 
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:gravity="center_vertical"
+            android:layout_weight="1"
+            android:textColor="@color/c07"
+            android:textSize="16dp"
+            android:text="@string/l_preferences"/>            
+    </LinearLayout>    
+    <TextView 
+        android:layout_width="fill_parent" 
+        android:layout_height="1dp"
+        android:background="@color/c10"/>
+    <!-- end of top static panel -->
+
+  	
+  	<!-- bottom possibly scrolled panel -->
+    <ScrollView 
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">    
+    <LinearLayout 
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp">
+            
+                
+        <!-- List with border -->
+    	<LinearLayout 
+        	android:orientation="vertical"
+        	android:layout_width="fill_parent"
+        	android:layout_height="wrap_content"
+       		android:background="@drawable/apptheme_bkg_list"
+       		android:padding="1dp"
+       		android:layout_margin="5dp">
+ 			
+    	    <!-- Menu element -->
+			<LinearLayout
+			    android:id="@+id/lst_gps_frequency"
+    			android:orientation="horizontal"
+    			android:layout_width="fill_parent"
+    			android:layout_height="fill_parent"
+    			android:background="@drawable/apptheme_bkg_list_item"
+    			android:clickable="true"
+    			android:soundEffectsEnabled="true"
+    			android:onClick="onClick">    
+    			<ImageView 
+       				android:layout_width="30dp"
+        			android:layout_height="30dp"
+        			android:layout_gravity="center"
+        			android:src="@drawable/icon_settings_gps_frequency" 
+        			android:contentDescription="@string/cd_icon"        			
+        			android:layout_margin="7dp"/>    
+   				<LinearLayout 
+   		    		android:orientation="vertical"
+   		    		android:layout_width="fill_parent"
+   		    		android:layout_height="wrap_content">   		    
+        			<TextView 
+            			android:layout_width="match_parent"
+            			android:layout_height="wrap_content" 
+            			android:textColor="@color/c07"
+            			android:textSize="14dp"
+            			android:layout_marginTop="5dp"
+            			android:textStyle="bold"
+            			android:text="@string/l_settings_gps_frequency" />
+	        		<TextView 
+	        		    android:id="@+id/txt_gps_frequency_value"
+        	    		android:layout_width="match_parent"
+            			android:layout_height="wrap_content"
+            			android:textColor="@color/c07"
+            			android:textSize="10dp"
+            			android:layout_marginBottom="5dp"
+            			android:text="" />	        
+   				</LinearLayout>     
+			</LinearLayout> 
+    	    <!-- End of menu element itself -->
+    		<TextView 
+        		android:layout_width="fill_parent" 
+        		android:layout_height="1dp"
+        		android:background="@color/c10"/>	
+    	    <!-- Menu element -->
+			<LinearLayout
+			    android:id="@+id/lst_network_type"
+    			android:orientation="horizontal"
+    			android:layout_width="fill_parent"
+    			android:layout_height="fill_parent"
+    			android:background="@drawable/apptheme_bkg_list_item"
+    			android:clickable="true"
+    			android:onClick="onClick"
+    			android:soundEffectsEnabled="true">    
+    			<ImageView 
+       				android:layout_width="30dp"
+        			android:layout_height="30dp"
+        			android:layout_gravity="center"
+        			android:src="@drawable/icon_settings_upload_network" 
+        			android:contentDescription="@string/cd_icon"        			
+        			android:layout_margin="7dp"/>    
+   				<LinearLayout 
+   		    		android:orientation="vertical"
+   		    		android:layout_width="fill_parent"
+   		    		android:layout_height="wrap_content">   		    
+        			<TextView 
+            			android:layout_width="match_parent"
+            			android:layout_height="wrap_content" 
+            			android:textColor="@color/c07"
+            			android:textSize="14dp"
+            			android:layout_marginTop="5dp"
+            			android:textStyle="bold"
+            			android:text="@string/l_settings_upload_network" />
+	        		<TextView 
+	        		    android:id="@+id/txt_upload_network_value"
+        	    		android:layout_width="match_parent"
+            			android:layout_height="wrap_content"
+            			android:textColor="@color/c07"
+            			android:textSize="10dp"
+            			android:layout_marginBottom="5dp"
+            			android:text="" />	        
+   				</LinearLayout>     
+			</LinearLayout> 
+    	    <!-- End of menu element itself -->
+    		<TextView 
+        		android:layout_width="fill_parent" 
+        		android:layout_height="1dp"
+        		android:background="@color/c10"/>
+    	    <!-- Menu element -->
+			<LinearLayout
+			    android:id="@+id/lst_data_packet_size"
+    			android:orientation="horizontal"
+    			android:layout_width="fill_parent"
+    			android:layout_height="fill_parent"
+    			android:background="@drawable/apptheme_bkg_list_item"
+    			android:clickable="true"
+    			android:onClick="onClick"
+    			android:soundEffectsEnabled="true">    
+    			<ImageView 
+       				android:layout_width="30dp"
+        			android:layout_height="30dp"
+        			android:layout_gravity="center"
+        			android:src="@drawable/icon_settings_packet_size" 
+        			android:contentDescription="@string/cd_icon"        			
+        			android:layout_margin="7dp"/>    
+   				<LinearLayout 
+   		    		android:orientation="vertical"
+   		    		android:layout_width="fill_parent"
+   		    		android:layout_height="wrap_content">   		    
+        			<TextView 
+            			android:layout_width="match_parent"
+            			android:layout_height="wrap_content" 
+            			android:textColor="@color/c07"
+            			android:textSize="14dp"
+            			android:layout_marginTop="5dp"
+            			android:textStyle="bold"
+            			android:text="@string/l_settings_packet_size" />
+	        		<TextView 
+	        		    android:id="@+id/txt_packet_size_value"
+        	    		android:layout_width="match_parent"
+            			android:layout_height="wrap_content"
+            			android:textColor="@color/c07"
+            			android:textSize="10dp"
+            			android:layout_marginBottom="5dp"
+            			android:text="" />	        
+   				</LinearLayout>     
+			</LinearLayout> 
+    	    <!-- End of menu element itself -->
+    	
+    	</LinearLayout>
+    	<!-- list with borders END -->
+        
+        <!-- List with border -->
+    	<LinearLayout 
+        	android:orientation="vertical"
+        	android:layout_width="fill_parent"
+        	android:layout_height="wrap_content"
+       		android:background="@drawable/apptheme_bkg_list"
+       		android:padding="1dp"
+       		android:layout_margin="5dp">
+ 			
+    	    <!-- Menu element User Credentials -->
+			<LinearLayout
+			    android:id="@+id/lst_user_credentials"
+			    android:onClick="onClick"
+    			android:orientation="horizontal"
+    			android:layout_width="fill_parent"
+    			android:layout_height="fill_parent"
+    			android:background="@drawable/apptheme_bkg_list_item"
+    			android:clickable="true"
+    			android:soundEffectsEnabled="true">    
+    			<ImageView 
+       				android:layout_width="30dp"
+        			android:layout_height="30dp"
+        			android:layout_gravity="center"
+        			android:src="@drawable/icon_settings_user_credentials" 
+        			android:contentDescription="@string/cd_icon"        			
+        			android:layout_margin="7dp"/>    
+   				<LinearLayout 
+   		    		android:orientation="vertical"   		    		
+   		    		android:layout_height="wrap_content"
+   		    		android:layout_width="0dp"
+   		    		android:layout_weight="1">   		    
+        			<TextView 
+            			android:layout_width="match_parent"
+            			android:layout_height="wrap_content" 
+            			android:textColor="@color/c07"
+            			android:textSize="14dp"
+            			android:layout_marginTop="5dp"
+            			android:textStyle="bold"
+            			android:text="@string/l_settings_user_credentials" />
+	        		<TextView 
+        	    		android:layout_width="match_parent"
+            			android:layout_height="wrap_content"
+            			android:textColor="@color/c07"
+            			android:textSize="10dp"
+            			android:layout_marginBottom="5dp"
+            			android:text="@string/l_settings_user_credentials_hint" />	        
+   				</LinearLayout> 
+    			<ImageView 
+       				android:layout_width="30dp"
+        			android:layout_height="30dp"
+        			android:layout_gravity="center"
+        			android:src="@drawable/icon_get_inside" 
+        			android:contentDescription="@string/cd_icon"        			
+        			android:layout_margin="7dp"/>   				    
+			</LinearLayout> 
+    	    <!-- End of menu element itself -->
+    		<TextView 
+        		android:layout_width="fill_parent" 
+        		android:layout_height="1dp"
+        		android:background="@color/c10"/>	
+    	    
+    	    <!-- Menu element Change Password -->
+			<LinearLayout
+    			android:orientation="horizontal"
+    			android:layout_width="fill_parent"
+    			android:layout_height="fill_parent"
+    			android:background="@drawable/apptheme_bkg_list_item"
+    			android:clickable="false"
+    			android:soundEffectsEnabled="true">    
+    			<ImageView 
+       				android:layout_width="30dp"
+        			android:layout_height="30dp"
+        			android:layout_gravity="center"
+        			android:src="@drawable/icon_settings_change_password" 
+        			android:contentDescription="@string/cd_icon"        			
+        			android:layout_margin="7dp"/>    
+   				<LinearLayout 
+   		    		android:orientation="vertical"   		    		
+   		    		android:layout_height="wrap_content"
+   		    		android:layout_width="0dp"
+   		    		android:layout_weight="1">  		    
+        			<TextView 
+            			android:layout_width="match_parent"
+            			android:layout_height="wrap_content" 
+            			android:textColor="@color/c12"
+            			android:textSize="14dp"
+            			android:layout_marginTop="5dp"
+            			android:textStyle="bold"
+            			android:text="@string/l_settings_change_password" />
+	        		<TextView 
+        	    		android:layout_width="match_parent"
+            			android:layout_height="wrap_content"
+            			android:textColor="@color/c12"
+            			android:textSize="10dp"
+            			android:layout_marginBottom="5dp"
+            			android:text="@string/l_settings_change_password_hint" />	        
+   				</LinearLayout> 
+    			<ImageView 
+       				android:layout_width="30dp"
+        			android:layout_height="30dp"
+        			android:layout_gravity="center"
+        			android:src="@drawable/icon_get_inside" 
+        			android:contentDescription="@string/cd_icon"        			
+        			android:layout_margin="7dp"/>    				    
+			</LinearLayout> 
+    	    <!-- End of menu element itself -->
+    		<TextView 
+        		android:layout_width="fill_parent" 
+        		android:layout_height="1dp"
+        		android:background="@color/c10"/>
+    	    <!-- Menu element Sign Up -->
+			<LinearLayout
+			    android:id="@+id/lst_sign_up"
+    			android:orientation="horizontal"
+    			android:layout_width="fill_parent"
+    			android:layout_height="fill_parent"
+    			android:background="@drawable/apptheme_bkg_list_item"
+    			android:clickable="true"
+    			android:onClick="onClick"
+    			android:soundEffectsEnabled="true">    
+    			<ImageView 
+       				android:layout_width="30dp"
+        			android:layout_height="30dp"
+        			android:layout_gravity="center"
+        			android:src="@drawable/icon_settings_sign_up" 
+        			android:contentDescription="@string/cd_icon"        			
+        			android:layout_margin="7dp"/>    
+   				<LinearLayout 
+   		    		android:orientation="vertical"   		    		
+   		    		android:layout_height="wrap_content"
+   		    		android:layout_width="0dp"
+   		    		android:layout_weight="1">  		    
+        			<TextView 
+            			android:layout_width="match_parent"
+            			android:layout_height="wrap_content" 
+            			android:textColor="@color/c07"
+            			android:textSize="14dp"
+            			android:layout_marginTop="5dp"
+            			android:textStyle="bold"
+            			android:text="@string/l_settings_sign_up" />
+	        		<TextView 
+        	    		android:layout_width="match_parent"
+            			android:layout_height="wrap_content"
+            			android:textColor="@color/c07"
+            			android:textSize="10dp"
+            			android:layout_marginBottom="5dp"
+            			android:text="@string/l_settings_sign_up_hint" />	        
+   				</LinearLayout>   
+    			<ImageView 
+       				android:layout_width="30dp"
+        			android:layout_height="30dp"
+        			android:layout_gravity="center"
+        			android:src="@drawable/icon_get_inside" 
+        			android:contentDescription="@string/cd_icon"        			
+        			android:layout_margin="7dp"/>    				  
+			</LinearLayout> 
+    	    <!-- End of menu element itself -->
+    	
+    	</LinearLayout>
+    	<!-- list with borders END -->    	
+    
+    </LinearLayout>
+    </ScrollView>
+    <!-- and of bottom scrolled panel -->
+</LinearLayout>
