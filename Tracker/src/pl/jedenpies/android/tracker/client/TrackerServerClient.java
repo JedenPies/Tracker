@@ -8,7 +8,6 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.protocol.ClientContext;
 import org.apache.http.conn.ConnectTimeoutException;
-import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.protocol.BasicHttpContext;
 import org.apache.http.protocol.HTTP;
 import org.apache.http.protocol.HttpContext;
@@ -16,24 +15,35 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import pl.jedenpies.android.tracker.db.model.Packet;
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Log;
 
 public class TrackerServerClient extends JSONClient {
 
-	private static final String SERVER_PATH = 	     "http://158.75.44.172:8080/TrackerServer/";
-	private static final String CAPTCHA_PATH = 		 "mobile/user/getCaptcha";
-	private static final String REGISTER_USER_PATH = "mobile/user/register";
-	private static final String LOGIN_USER_PATH	=    "mobile/user/login";
-	private static final String LOGOUT_USER_PATH   = "mobile/user/logout";
-	private static final String CHECK_STATUS_PATH =  "mobile/checkStatus";
-	private static final String SEND_PACKET_PATH  =  "mobile/sendPacket";	
+	private static final String SERVER_PATH = 	     "192.168.0.102/TrackerServer/";
+	private static final String CAPTCHA_PATH = 		 "http://" + SERVER_PATH + "mobile/user/getCaptcha";
+	private static final String REGISTER_USER_PATH = "https://" + SERVER_PATH + "mobile/user/register";
+	private static final String LOGIN_USER_PATH	=    "https://" + SERVER_PATH + "mobile/user/login";
+	private static final String LOGOUT_USER_PATH   = "http://" + SERVER_PATH + "mobile/user/logout";
+	private static final String CHECK_STATUS_PATH =  "http://" + SERVER_PATH + "mobile/status";
+	private static final String SEND_PACKET_PATH  =  "http://" + SERVER_PATH + "mobile/sendPacket";	
 	
 	private static final String LOGGER_NAME = TrackerServerClient.class.getName();
 	
+	private Context context;
+	
+	public TrackerServerClient(Context context) {
+		this.context = context;
+	}
+	
 	public String getEncoding() {
 		return HTTP.UTF_8;
+	}
+	
+	public Context getContext() {
+		return this.context;
 	}
 	
 	/**
@@ -43,8 +53,8 @@ public class TrackerServerClient extends JSONClient {
 	public Bitmap getCaptcha() {
 		
 		try {
-			HttpGet httpGet = new HttpGet(SERVER_PATH + CAPTCHA_PATH);
-			HttpClient httpClient = new DefaultHttpClient();
+			HttpGet httpGet = new HttpGet(CAPTCHA_PATH);
+			HttpClient httpClient = new TrackerHttpClient(context);
 			
 			HttpContext context = new BasicHttpContext();
 			context.setAttribute(ClientContext.COOKIE_STORE, cookieStore);			
@@ -66,7 +76,7 @@ public class TrackerServerClient extends JSONClient {
 	public boolean checkStatus() {
 		
 		try {			
-			super.getJSONPacket(SERVER_PATH + CHECK_STATUS_PATH, makeParams(2000, 3000));
+			super.getJSONPacket(CHECK_STATUS_PATH, makeParams(2000, 3000));
 			return true;
 			
 		} catch (ClientProtocolException e) {
@@ -96,10 +106,9 @@ public class TrackerServerClient extends JSONClient {
 			request.putOpt("password2", password2);
 			request.putOpt("captchaAnswer", captchaAnswer);
 			
-			JSONObject response = sendJSONPacket(SERVER_PATH + REGISTER_USER_PATH, request);
+			JSONObject response = sendJSONPacket(REGISTER_USER_PATH, request);
 			return parseResponse(response);
 						
-		// TODO Modify messages
 		} catch (JSONException e) {
 			errorCode = TrackerServerResponse.CODE_PARSING_RESPONSE;
 			errorMessage = "JSONException";
@@ -132,7 +141,7 @@ public class TrackerServerClient extends JSONClient {
 			JSONObject object = new JSONObject();
 			object.putOpt("username", username);
 			object.putOpt("password", password);
-			JSONObject response = super.sendJSONPacket(SERVER_PATH + LOGIN_USER_PATH, object);
+			JSONObject response = super.sendJSONPacket(LOGIN_USER_PATH, object);
 			result = parseResponse(response);
 			return result;
 		} catch (JSONException e) {
@@ -152,7 +161,7 @@ public class TrackerServerClient extends JSONClient {
 	public TrackerServerResponse userLogout() {
 		
 		try {
-			return parseResponse(getJSONPacket(SERVER_PATH + LOGOUT_USER_PATH));
+			return parseResponse(getJSONPacket(LOGOUT_USER_PATH));
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -168,7 +177,7 @@ public class TrackerServerClient extends JSONClient {
 		
 		try {
 			TrackerServerResponse response;
-			response = parseResponse(sendJSONPacket(SERVER_PATH + "/" + SEND_PACKET_PATH, packet.getJSONObject()));
+			response = parseResponse(sendJSONPacket(SEND_PACKET_PATH, packet.getJSONObject()));
 			return response;
 		} catch (JSONException e) {
 			return new TrackerServerResponse(TrackerServerResponse.CODE_PARSING_RESPONSE, e.getMessage());

@@ -1,5 +1,7 @@
 package pl.jedenpies.web.tracker.model.hibernate;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,7 +19,7 @@ public class Coordinate {
 	private Long id;
 	private Double longitude;
 	private Double latitude;
-	private Long timestamp;
+	private Date timestamp;
 	
 	public Long getId() {
 		return id;
@@ -37,10 +39,10 @@ public class Coordinate {
 	public void setLatitude(Double latitude) {
 		this.latitude = latitude;
 	}
-	public Long getTimestamp() {
+	public Date getTimestamp() {
 		return timestamp;
 	}
-	public void setTimestamp(Long timestamp) {
+	public void setTimestamp(Date timestamp) {
 		this.timestamp = timestamp;
 	}
 }

@@ -1,0 +1,48 @@
+ul.horizontalMenu {
+	font-size: 19px;
+	padding: 0px;
+	margin: 8px;
+}
+
+ul.horizontalMenu > li {
+	list-style-type: none;
+	float: left;
+	border-bottom: 3px solid #ccc;
+	margin: 2px;
+	padding: 5px 15px;
+	font-variant: small-caps;
+	width: 120px;
+	text-align: center;
+}
+
+ul.horizontalMenu > li.selected {
+	border-bottom-color: #666;
+	cursor: auto;
+}
+
+ul.horizontalMenu > li:hover {
+	border-bottom-color: #999;
+	cursor: auto;
+}
+
+ul.horizontalMenu > li.selected:hover {
+	border-bottom-color: #666;
+	cursor: auto;
+}
+
+ul.horizontalMenu > li.selected > a {
+	cursor: default;
+}
+
+ul.horizontalMenu > li > a {
+	color: #444;
+	text-decoration: none;
+}
+
+ul.horizontalMenu > li.inactive:hover {
+	border-bottom-color: #ccc;
+}
+
+ul.horizontalMenu > li.inactive {
+	color: #ddd;
+}

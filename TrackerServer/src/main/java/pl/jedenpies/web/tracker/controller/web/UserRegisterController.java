@@ -1,4 +1,4 @@
-package pl.jedenpies.web.tracker.controller.mobile;
+package pl.jedenpies.web.tracker.controller.web;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;

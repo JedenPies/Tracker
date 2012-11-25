@@ -33,7 +33,7 @@ public class UserCredentialsActivity extends Activity {
 		guiHandler.txtUsername.addTextChangedListener(textChangedListener);
 		guiHandler.txtPassword.addTextChangedListener(textChangedListener);
 		
-		client = new TrackerServerClient();		
+		client = new TrackerServerClient(this);		
 	}
 	
 	@Override

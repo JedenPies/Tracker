@@ -8,18 +8,13 @@
                     http://www.springframework.org/schema/security/spring-security-3.1.xsd">
 
 	<sec:http use-expressions="true" entry-point-ref="http403EntryPoint">
-        <!-- 
-        <sec:intercept-url pattern="/**" access="permitAll" />
-         -->
     </sec:http>
      
     <sec:authentication-manager alias="authenticationManager">
         <sec:authentication-provider user-service-ref="userService" > 
-            <sec:password-encoder hash="plaintext">
+            <sec:password-encoder hash="sha">
                 <sec:salt-source user-property="username"/>
             </sec:password-encoder>
-            <!-- 
-             -->
         </sec:authentication-provider>        
     </sec:authentication-manager>
     

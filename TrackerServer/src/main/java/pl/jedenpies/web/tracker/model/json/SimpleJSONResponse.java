@@ -1,4 +1,4 @@
-package pl.jedenpies.web.tracker.controller.mobile;
+package pl.jedenpies.web.tracker.model.json;
 
 public class SimpleJSONResponse {
 
@@ -6,16 +6,18 @@ public class SimpleJSONResponse {
 	public final static String STATUS_NOK = "NOK";
 	
 	public final static SimpleJSONResponse RESPONSE_OK = new SimpleJSONResponse();
-	public final static SimpleJSONResponse RESPONSE_NOK = new SimpleJSONResponse(null);
+	public final static SimpleJSONResponse RESPONSE_NOK = new SimpleJSONResponse(0, null);
 	
 	private String status;
+	private int errorCode;
 	private String errorMessage;
 	
 	public SimpleJSONResponse() {
 		this.status = STATUS_OK;
 	}
 	
-	public SimpleJSONResponse(String errorMessage) {
+	public SimpleJSONResponse(int errorCode, String errorMessage) {
+		this.errorCode = errorCode;
 		this.status = STATUS_NOK;
 		this.errorMessage = errorMessage;
 	}
@@ -26,6 +28,10 @@ public class SimpleJSONResponse {
 
 	public String getErrorMessage() {
 		return errorMessage;
+	}
+	
+	public int getErrorCode() {
+		return errorCode;
 	}
 	
 }

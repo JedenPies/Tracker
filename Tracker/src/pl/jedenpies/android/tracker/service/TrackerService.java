@@ -53,6 +53,8 @@ public class TrackerService extends Service {
 	private NetworkType networksAllowed;
 	private int gpsFrequency;
 	private int packetSize;	
+	
+	private TrackerServerClient trackerServerClient;
 
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startId) {
@@ -62,6 +64,13 @@ public class TrackerService extends Service {
 		
 		dao = new TrackerServiceDao(this);
 		dao.open();
+		try {
+			dao.cleanProcessed();
+		} catch (NotAvailableException e) {
+			Log.w(LOG_NAME, e.getMessage());
+		}
+		
+		trackerServerClient = new TrackerServerClient(this);
 
 		Preferences prefs = new Preferences(getApplication());
 		networksAllowed = NetworkType.getByValue(prefs.getNetworkType());
@@ -297,9 +306,8 @@ public class TrackerService extends Service {
 					return;			
 				}
 				
-				// Check server availability
-				TrackerServerClient client = new TrackerServerClient();			
-				if (!client.checkStatus()) {
+				// Check server availability			
+				if (!trackerServerClient.checkStatus()) {
 					Log.d(LOG_NAME, "Server is not available.");
 					dao.markPacketCreated(packet.getId());
 					return;
@@ -307,14 +315,14 @@ public class TrackerService extends Service {
 				
 				// Try to log in
 				Preferences prefs = new Preferences(getApplication());
-				TrackerServerResponse response = client.userLogin(prefs.getUserLogin(), prefs.getUserPassword());
+				TrackerServerResponse response = trackerServerClient.userLogin(prefs.getUserLogin(), prefs.getUserPassword());
 				if (!TrackerServerResponse.STATUS_OK.equals(response.getStatus())) {
 					Log.d(LOG_NAME, "Login failed");
 					dao.markPacketCreated(packet.getId());
 					return;
 				}
 				
-				response = client.sendPacket(packet);
+				response = trackerServerClient.sendPacket(packet);
 				if (!TrackerServerResponse.STATUS_OK.equals(response.getStatus())) {
 					Log.d(LOG_NAME, "Sending packet failed: " + response.getErrorMessage());
 					dao.markPacketCreated(packet.getId());

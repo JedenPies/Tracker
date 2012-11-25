@@ -4,8 +4,8 @@ import java.awt.image.BufferedImage;
 
 import pl.jedenpies.web.tracker.model.domain.Location;
 
-public interface PaintMapService {
+public interface PaintingService {
 
-	BufferedImage drawArea(Location lowCorner, Location highCorner);
-
+	public BufferedImage createPicture(Location leftBottomCorner, Location rightTopCorner, int picSize);
+	
 }

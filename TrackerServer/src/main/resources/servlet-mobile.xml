@@ -17,11 +17,12 @@
 	<mvc:annotation-driven/>  
 	
 	<!-- 
-    <sec:global-method-security pre-post-annotations="enabled"/>
 	 -->
+    <sec:global-method-security pre-post-annotations="enabled"/>
               
 	<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />
     <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
+   
     <bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter" >
         <property name="prefixJson" value="false" />
     	<property name="supportedMediaTypes" value="application/json" />
@@ -33,6 +34,7 @@
     </bean>
     
     <context:component-scan base-package="pl.jedenpies.web.tracker.controller.mobile"/>    
+  	
   	<bean class="org.springframework.web.servlet.view.json.MappingJacksonJsonView">  
         <property name="prefixJson" value="false"/>  
      </bean>

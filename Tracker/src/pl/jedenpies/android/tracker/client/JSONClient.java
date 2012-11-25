@@ -14,7 +14,6 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.protocol.ClientContext;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.BasicCookieStore;
-import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.params.BasicHttpParams;
 import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.params.HttpParams;
@@ -23,11 +22,14 @@ import org.apache.http.protocol.HttpContext;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.content.Context;
+
 public abstract class JSONClient {
 
 	protected CookieStore cookieStore = new BasicCookieStore();
 	
 	protected abstract String getEncoding();
+	protected abstract Context getContext();
 	
 	protected JSONObject sendJSONPacket(String targetUrl, JSONObject object) 
 			throws ClientProtocolException, IOException, JSONException {
@@ -36,7 +38,7 @@ public abstract class JSONClient {
 	protected JSONObject sendJSONPacket(String targetUrl, HttpParams httpParams, JSONObject object) 
 			throws ClientProtocolException, IOException, JSONException {
 
-		HttpClient httpClient = new DefaultHttpClient(httpParams);		
+		HttpClient httpClient = new TrackerHttpClient(getContext(), httpParams);	
 		
 		HttpPost httpPost = new HttpPost(targetUrl);
 		httpPost.addHeader("Content-Type", "application/json");
@@ -57,7 +59,7 @@ public abstract class JSONClient {
 	protected JSONObject getJSONPacket(String targetUrl, HttpParams httpParams) 
 			throws IOException, JSONException {
 		
-		HttpClient httpClient = new DefaultHttpClient(httpParams);
+		HttpClient httpClient = new TrackerHttpClient(getContext(), httpParams);
 		
 		HttpGet httpGet = new HttpGet(targetUrl);
 		

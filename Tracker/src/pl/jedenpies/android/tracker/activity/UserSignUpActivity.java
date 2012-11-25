@@ -35,7 +35,7 @@ public class UserSignUpActivity extends Activity {
 		guiHandler.txtPassword2.addTextChangedListener(textChangedListener);
 		guiHandler.txtCaptchaAnswer.addTextChangedListener(textChangedListener);
 		
-		client = new TrackerServerClient();
+		client = new TrackerServerClient(this);
 	}
 	
 	@Override

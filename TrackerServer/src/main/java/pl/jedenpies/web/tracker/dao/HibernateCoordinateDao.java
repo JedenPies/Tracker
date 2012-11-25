@@ -1,11 +1,11 @@
 package pl.jedenpies.web.tracker.dao;
 
-import org.hibernate.Criteria;
 import org.hibernate.ScrollableResults;
+import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
-import pl.jedenpies.web.tracker.Location;
+import pl.jedenpies.web.tracker.model.domain.Location;
 import pl.jedenpies.web.tracker.model.hibernate.Coordinate;
 
 @Repository("hibernateCoordinateDao")
@@ -19,10 +19,23 @@ public class HibernateCoordinateDao extends AbstractHibernateDao implements Coor
 
 	@Override
 	public ScrollableResults findCoordinates(Location lowCorner, Location highCorner) {
-		Criteria c = getCurrentSession().createCriteria(Coordinate.class);
-		c.add(Restrictions.between("latitude", lowCorner.getLatitude(), highCorner.getLatitude()));
-		c.add(Restrictions.between("longitude", lowCorner.getLongitude(), highCorner.getLatitude()));
-		return c.scroll();
+		return getCurrentSession().createCriteria(Coordinate.class)
+			.add(Restrictions.gt("latitude", lowCorner.getLatitude()))
+			.add(Restrictions.lt("latitude", highCorner.getLatitude()))
+			.add(Restrictions.gt("longitude", lowCorner.getLongitude()))
+			.add(Restrictions.lt("longitude", highCorner.getLongitude()))
+			.scroll();
+	}
+
+	@Override
+	public int findCoordinatesCount(Location lowCorner, Location highCorner) {
+		return (Integer) getCurrentSession().createCriteria(Coordinate.class)
+				.add(Restrictions.gt("latitude", lowCorner.getLatitude()))
+				.add(Restrictions.lt("latitude", highCorner.getLatitude()))
+				.add(Restrictions.gt("longitude", lowCorner.getLongitude()))
+				.add(Restrictions.lt("longitude", highCorner.getLongitude()))
+				.setProjection(Projections.rowCount())
+				.uniqueResult();
 	}
 
 }

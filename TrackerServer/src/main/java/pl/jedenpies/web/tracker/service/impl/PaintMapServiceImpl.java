@@ -10,16 +10,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import pl.jedenpies.web.tracker.Location;
+import pl.jedenpies.web.tracker.dao.CoordinateDao;
+import pl.jedenpies.web.tracker.model.domain.Location;
 import pl.jedenpies.web.tracker.model.hibernate.Coordinate;
-import pl.jedenpies.web.tracker.service.CoordinateService;
 import pl.jedenpies.web.tracker.service.PaintMapService;
 
 @Transactional @Service("paintMapService")
 public class PaintMapServiceImpl implements PaintMapService {
 
 	@Autowired
-	private CoordinateService coordsService;
+	private CoordinateDao coordDao;
 	
 	@Override
 	public BufferedImage drawArea(Location lowCorner, Location highCorner) {
@@ -35,7 +35,7 @@ public class PaintMapServiceImpl implements PaintMapService {
 		gr.setPaint(Color.black);	
 		
 		System.out.println("ls: " + longScale + " " + latScale);
-		ScrollableResults coords = coordsService.findCoordinates(lowCorner, highCorner);		
+		ScrollableResults coords = coordDao.findCoordinates(lowCorner, highCorner);		
 		coords.beforeFirst();
 		int a = 0;
 		while (coords.next()) {

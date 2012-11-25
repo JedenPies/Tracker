@@ -1,4 +1,4 @@
-package pl.jedenpies.web.tracker;
+package pl.jedenpies.web.tracker.model.domain;
 
 public class Location {
 
@@ -14,5 +14,9 @@ public class Location {
 	}
 	public double getLongitude() {
 		return longitude;
+	}
+	
+	public String toString() {
+		return "(" + (Math.round(latitude * 100) / 100) + "," + (Math.round(longitude * 100) / 100) + ")";
 	}
 }

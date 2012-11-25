@@ -1,0 +1,83 @@
+form {
+	width: 590px;
+	padding: 10px;
+	margin: 0px auto;
+}
+
+form > input[type="text"],form > input[type="password"] {
+	float: right;
+	border: 1px solid #ddd;
+	margin: 5px 0;
+	width: 360px;
+	height: 40px;
+	font-size: 16px;
+	padding: 7px;
+}
+
+input[type="submit"],input[type="reset"] {
+	margin: 10px 0px 5px 10px;
+	float: right;
+	border: 1px solid #ccc;
+	font-size: 16px;
+	padding: 10px 20px;
+	color: #777;
+	cursor: hand;
+}
+
+label {
+	float: left;
+	width: 200px;
+	height: 40px;
+	padding: 0px;
+	color: #444;
+	text-align: right;
+	font-family: Verdana, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	margin: 4px 10px;
+	vertical-align: middle;
+}
+
+form > img.captcha {	
+	float: left;
+}
+
+label small {
+	float: left;
+	clear: both;
+	font-family: Tahoma, sans-serif;
+	font-size: 9px;
+	text-align: right;
+	vertical-align: middle;
+	width: 100%;
+	font-weight: normal;
+}
+
+.buttonBar {
+	float: left;
+	text-align: right;
+	width: 100%;
+	clear: both;
+}
+
+.messageBar {
+	float: left;
+	border: 1px solid red;
+	width: 100%;
+	clear: both;
+}
+
+form > h1 {
+	margin: 0 auto 10px auto;
+	background-color: #eee;
+	border: 1px solid #ddd;
+	color: #777;
+	font-size: 16px;
+	text-align: center;
+	vertical-align: middle;
+	padding: 10px;
+}
+
+.firstInRow {
+	clear: both;
+}
