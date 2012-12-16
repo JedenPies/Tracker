@@ -23,12 +23,12 @@ import android.util.Log;
 public class TrackerServerClient extends JSONClient {
 
 	private static final String SERVER_PATH = 	     "192.168.0.102/TrackerServer/";
-	private static final String CAPTCHA_PATH = 		 "http://" + SERVER_PATH + "mobile/user/getCaptcha";
-	private static final String REGISTER_USER_PATH = "https://" + SERVER_PATH + "mobile/user/register";
-	private static final String LOGIN_USER_PATH	=    "https://" + SERVER_PATH + "mobile/user/login";
-	private static final String LOGOUT_USER_PATH   = "http://" + SERVER_PATH + "mobile/user/logout";
-	private static final String CHECK_STATUS_PATH =  "http://" + SERVER_PATH + "mobile/status";
-	private static final String SEND_PACKET_PATH  =  "http://" + SERVER_PATH + "mobile/sendPacket";	
+	private static final String CAPTCHA_PATH = 		 "http://" + SERVER_PATH + "json/user/getCaptcha";
+	private static final String REGISTER_USER_PATH = "https://" + SERVER_PATH + "json/user/register";
+	private static final String LOGIN_USER_PATH	=    "https://" + SERVER_PATH + "json/user/login";
+	private static final String LOGOUT_USER_PATH   = "http://" + SERVER_PATH + "json/user/logout";
+	private static final String CHECK_STATUS_PATH =  "http://" + SERVER_PATH + "json/status";
+	private static final String SEND_PACKET_PATH  =  "http://" + SERVER_PATH + "json/sendPacket";	
 	
 	private static final String LOGGER_NAME = TrackerServerClient.class.getName();
 	

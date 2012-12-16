@@ -61,10 +61,13 @@ label small {
 }
 
 .messageBar {
-	float: left;
-	border: 1px solid red;
-	width: 100%;
+	float: right;
 	clear: both;
+	margin: 0 0 10px 0;
+	color: red;
+	width: 350px;
+	font-size: 12px;
+	padding: 0 5px 5px 5px;
 }
 
 form > h1 {

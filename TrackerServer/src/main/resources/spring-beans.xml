@@ -14,43 +14,40 @@
 
 	<import resource="classpath:datasources.xml" />
 	<import resource="classpath:hibernate.xml" />
+	<import resource="classpath:quartz.xml" />
 
-	<context:component-scan base-package="pl.jedenpies.web.tracker.dao" />
-	<context:component-scan base-package="pl.jedenpies.web.tracker.service" />
-	<context:component-scan base-package="pl.jedenpies.web.tracker.utils" />
-	<context:component-scan base-package="pl.jedenpies.web.tracker.beans" scoped-proxy="targetClass"/>	
+	<context:component-scan base-package="pl.jedenpies.web.traces.dao" />
+	<context:component-scan base-package="pl.jedenpies.web.traces.service" />
+	<context:component-scan base-package="pl.jedenpies.web.traces.utils" />
+	<context:component-scan base-package="pl.jedenpies.web.traces.beans" scoped-proxy="targetClass"/>	
 	
-	<context:property-placeholder location="classpath:application.properties"/>
+	<context:property-placeholder location="classpath*:application.properties"/>
 		
 	<!-- Temporal, should be extracted to another file -->
-	<bean id="mapDescriptor" class="pl.jedenpies.web.tracker.beans.MapDescriptor">
+	<bean id="mapDescriptor" class="pl.jedenpies.web.traces.beans.MapDescriptor">
 		
 		<property name="areaTypes">
 		    <set>
 		        <value>LEVEL1</value>
 		        <value>LEVEL2</value>
-		        <!-- 
 		        <value>LEVEL3</value>
 		        <value>LEVEL4</value>
 		        <value>LEVEL5</value>
 		        <value>LEVEL6</value>
 		        <value>LEVEL7</value>
 		        <value>LEVEL8</value>
-		         -->
 		        <value>LEVEL9</value>
-		        <!-- 
 		        <value>LEVEL10</value>
-		         -->
 		    </set>
 		</property>  
 		<property name="leftBottomCorner">
-			<bean class="pl.jedenpies.web.tracker.model.domain.Location">
+			<bean class="pl.jedenpies.web.traces.model.domain.Location">
 				<constructor-arg index="0" value="${map.area.bottomLeftCorner.latitude}" />
 				<constructor-arg index="1" value="${map.area.bottomLeftCorner.longitude}" />	    
 			</bean>	
 	    </property>
 		<property name="rightTopCorner">
-			<bean id="topRightMapCorner" class="pl.jedenpies.web.tracker.model.domain.Location">
+			<bean id="topRightMapCorner" class="pl.jedenpies.web.traces.model.domain.Location">
 				<constructor-arg index="0" value="${map.area.topRightCorner.latitude}" />
 				<constructor-arg index="1" value="${map.area.topRightCorner.longitude}" />	    
 			</bean>
@@ -59,14 +56,4 @@
 		<property name="fileFormat" value="png" />
 	</bean>
 	
-	<!-- 
-	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-    	<property name="location" value="WEB-INF/classes/config/application.properties"/>
-   	</bean>	
-	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
-		<property name="basename">
-			<value>messages/messages</value>
-		</property>
-	</bean>
-	 -->
 </beans>

@@ -4,10 +4,10 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
 
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
-    	<property name="driverClassName" value="org.postgresql.Driver" />
-    	<property name="url" value="jdbc:postgresql://localhost:5432/tracker" />
-    	<property name="username" value="tracker" />
-    	<property name="password" value="tracker" />
+    	<property name="driverClassName" value="${database.driver}" />
+    	<property name="url" value="${database.url}" />
+    	<property name="username" value="${database.username}" />
+    	<property name="password" value="${database.password}" />
  	</bean>
  	
 </beans>

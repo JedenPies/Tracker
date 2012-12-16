@@ -7,3 +7,6 @@ NICE TO HAVE
 - Wider map
 - better map centering
 - faster area drawing - ommit parts, where nothing will be painted
+
+
+

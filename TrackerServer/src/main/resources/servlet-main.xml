@@ -17,11 +17,12 @@
 	<mvc:annotation-driven/>    
 	<!-- 
 	 -->
-          
+    <sec:global-method-security pre-post-annotations="enabled"/>
+              
 	<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />
     <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
     
-    <context:component-scan base-package="pl.jedenpies.web.tracker.controller.web"/>
+    <context:component-scan base-package="pl.jedenpies.web.traces.controller.web"/>
     <mvc:resources mapping="/static/**" location="/WEB-INF/static/" />    
   
   	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">

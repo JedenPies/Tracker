@@ -1,9 +1,9 @@
--- Database: tracker
+-- Database: traces
 
--- DROP DATABASE tracker;
+-- DROP DATABASE traces;
 
-CREATE DATABASE tracker
-  WITH OWNER = tracker_admin
+CREATE DATABASE traces
+  WITH OWNER = traces_admin
        ENCODING = 'UTF8'
        TABLESPACE = pg_default
        LC_COLLATE = 'Polish_Poland.1250'
@@ -44,8 +44,8 @@ WITH (
   OIDS=FALSE
 );
 ALTER TABLE coordinates
-  OWNER TO tracker_admin;
-GRANT ALL ON TABLE coordinates TO tracker_admin;
+  OWNER TO traces_admin;
+GRANT ALL ON TABLE coordinates TO traces_admin;
 GRANT SELECT, UPDATE, INSERT, DELETE ON TABLE coordinates TO public;
 
 
@@ -67,8 +67,8 @@ WITH (
   OIDS=FALSE
 );
 ALTER TABLE users
-  OWNER TO tracker_admin;
-GRANT ALL ON TABLE users TO tracker_admin;
+  OWNER TO traces_admin;
+GRANT ALL ON TABLE users TO traces_admin;
 GRANT SELECT, UPDATE, INSERT ON TABLE users TO public;
 
   
@@ -85,7 +85,7 @@ CREATE SEQUENCE users_seq
   START 1
   CACHE 1;
 ALTER TABLE users_seq
-  OWNER TO tracker_admin;
-GRANT ALL ON TABLE users_seq TO tracker_admin;
+  OWNER TO traces_admin;
+GRANT ALL ON TABLE users_seq TO traces_admin;
 GRANT USAGE ON TABLE users_seq TO public;
   

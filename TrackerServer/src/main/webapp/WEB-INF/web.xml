@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 	id="WebApp_ID" version="3.0">
 
-	<display-name>Tracker Server</display-name>
+	<display-name>Traces Server</display-name>
 	
 	<!-- 
 	<context-param>
@@ -21,6 +21,12 @@
 		</param-value>
 	</context-param>
 
+	<!-- 
+	<filter>
+	    <filter-name>Http2HttpsRedirectFilter</filter-name>
+	    <filter-class>pl.jedenpies.web.traces.filters.Http2HttpsRedirectFilter</filter-class>
+	</filter>
+	 -->
 	<filter>  
         <filter-name>CharacterEncodingFilter</filter-name>  
         <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>  
@@ -34,6 +40,13 @@
         <filter-name>springSecurityFilterChain</filter-name>
     	<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>      
     </filter>
+	
+    <!-- 
+	<filter-mapping>
+	    <filter-name>Http2HttpsRedirectFilter</filter-name>
+        <url-pattern>/*</url-pattern>  	    
+	</filter-mapping>
+     -->
 	<filter-mapping>  
         <filter-name>CharacterEncodingFilter</filter-name>  
         <url-pattern>/*</url-pattern>  
@@ -54,18 +67,18 @@
 	</servlet>
 	
 	<servlet>
-		<servlet-name>mobile</servlet-name>
+		<servlet-name>json</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
-			<param-value>/WEB-INF/classes/servlet-mobile.xml</param-value>
+			<param-value>/WEB-INF/classes/servlet-json.xml</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	   
 	<servlet-mapping>
-		<servlet-name>mobile</servlet-name>
-		<url-pattern>/mobile/*</url-pattern>
+		<servlet-name>json</servlet-name>
+		<url-pattern>/json/*</url-pattern>
 	</servlet-mapping>	
 	
 	<servlet-mapping>

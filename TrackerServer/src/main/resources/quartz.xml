@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+    
+  <bean id="drawMapsJobBean" class="pl.jedenpies.web.traces.utils.impl.DrawMapsJob" />
+    
+  <bean id="drawMapsJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+    <property name="targetObject" ref="drawMapsJobBean"/>
+    <property name="targetMethod" value="doJob"/>
+  </bean> 	
+  
+  <bean id="drawMapsJobTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+    <property name="jobDetail" ref="drawMapsJob" />
+    <!-- run every night at 11 PM -->
+    <property name="cronExpression" value="0 10 14 * * ?" />
+  </bean>
+  
+  <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+    <property name="triggers">
+        <list>
+            <ref bean="drawMapsJobTrigger" />
+        </list>
+    </property>
+</bean>
+
+</beans>

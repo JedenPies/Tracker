@@ -1,0 +1,13 @@
+/json/status - Check status
+/json/packet/send - send packet
+/json/user/login - login user
+/json/user/logout - logout user
+/json/user/register
+/json/user/isAvailable/{username}
+/json/map/area/info/{level}.json
+
+/
+/main
+
+/map
+/map/area/{level}/{x}/{y}.img
